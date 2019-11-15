@@ -15,24 +15,21 @@
 
 void my_putchar(char c);
 
-int my_getnbr(char const *str);
-
-//malloc buffer
-
-int bsq(int fd, int size)
-{
-
-}
+int my_putstr(char const *str);
 
 int main(int argc, char **argv)
 {
-    int i = 0;
+    int fd;
     int size;
-    struct stat *buf = malloc(sizeof(struct stat));
-    char *buffer = malloc(sizeof(struct stat));
+    struct stat buf;
+    char *buffer = NULL;
     const char *path = argv[1];
-    stat(path, buf);
-    printf("%d\n", buf->st_size);
+
+    stat(path, &buf);
+    buffer = malloc(sizeof(char) * (buf.st_size) + 1);
+    buffer[buf.st_size] = '\0';
+    fd = open(argv[1], O_RDONLY);
+    read(fd, buffer, buf.st_size);
+    my_putstr(buffer);
     return (0);
 }
-//fd = open(argv[1], O_RDONLY);
