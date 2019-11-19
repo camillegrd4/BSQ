@@ -31,7 +31,8 @@ int main(int argc, char **argv)
     fd = open(argv[1], O_RDONLY);
     read(fd, buffer, buf.st_size);
     bsq(buffer, str);
-    my_putstr(str);
+    min_nbr(str, buffer);
+    my_putstr(buffer);
     free(buffer);
     return (0);
 }

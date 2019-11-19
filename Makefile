@@ -14,6 +14,7 @@ SRC	=		SRC/bsq.c \
 			SRC/min_nbr.c \
 			SRC/main.c \
 			SRC/intlen.c \
+			SRC/calc_square.c \
 
 CFLAGS	=	-I ./include
 

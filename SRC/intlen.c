@@ -4,6 +4,7 @@
 ** File description:
 ** intlen
 */
+
 #include "my.h"
 
 int intlen(int const *str)

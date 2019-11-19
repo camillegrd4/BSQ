@@ -21,13 +21,13 @@ int my_putstr(char const *str);
 int my_algo(char *buffer, int *str)
 {
     int i = 0;
-    int nb;
+    char nb;
 
     while (str[i] != -2)
         {
             if (str[i] > 0 && str[i - 1] > 0 && str[i - intlen(str)] > 0
             && str[i - intlen(str) - 1] > 0) {
-            nb = min_nbr(str);
+            nb = min_nbr(str, buffer);
             }
             i = i + 1;
         }
