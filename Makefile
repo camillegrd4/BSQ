@@ -5,13 +5,17 @@
 ## compiles libmy
 ##
 
-SRC =		SRC/bsq.c \
-		SRC/my_putchar.c \
-		SRC/my_getnbr.c \
-		SRC/my_put_nbr.c \
-		SRC/my_putstr.c \
+SRC	=		SRC/bsq.c \
+			SRC/my_putchar.c \
+			SRC/my_getnbr.c \
+			SRC/my_put_nbr.c \
+			SRC/my_putstr.c \
+			SRC/my_strlen.c \
+			SRC/min_nbr.c \
+			SRC/main.c \
+			SRC/intlen.c \
 
-CFLAGS	=	-I../include
+CFLAGS	=	-I ./include
 
 OBJ	=	$(SRC:.c=.o)
 
