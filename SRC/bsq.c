@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2019
-** bsq.c
+** main.C
 ** File description:
-** bsq.c
+** main.c
 */
 
 #include <fcntl.h>
@@ -14,37 +14,24 @@
 #include <stdlib.h>
 #include "my.h"
 
-void my_putchar(char c);
-
-int my_putstr(char const *str);
-
-int my_algo(char *buffer, int *str)
+int bsq(int argc, char **argv)
 {
+    int fd;
+    int size;
     int i = 0;
-    char nb;
+    struct stat buf;
+    char *buffer = NULL;
+    int *str;
+    const char *path = argv[1];
 
-    while (str[i] != -2)
-        {
-            if (str[i] > 0 && str[i - 1] > 0 && str[i - intlen(str)] > 0
-            && str[i - intlen(str) - 1] > 0) {
-            nb = min_nbr(str, buffer);
-            }
-            i = i + 1;
-        }
-}
-
-void bsq(char *buffer, int *str)
-{
-    int i = 0;
-
-    while (buffer[i] != '\0') {
-        if (buffer[i] == '.')
-            str[i] = 1;
-        if (buffer[i] == 'o')
-            str[i] = 0;
-        if (buffer[i] == '\n')
-            str[i] = -1;
-        i = i + 1;
-    }
-    str[i] = -2;
+    stat(path, &buf);
+    buffer = malloc(sizeof(char) * (buf.st_size + 1));
+    str = malloc(sizeof(char) * (buf.st_size + 1));
+    buffer[buf.st_size] = '\0';
+    fd = open(argv[1], O_RDONLY);
+    read(fd, buffer, buf.st_size);
+    calc_sup(str, buffer);
+    my_putstr(buffer);
+    free(buffer);
+    return (0);
 }

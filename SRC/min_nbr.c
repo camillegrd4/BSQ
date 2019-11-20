@@ -6,6 +6,7 @@
 */
 
 #include "my.h"
+#include <stdio.h>
 
 int min_nbr(int *str, char *buffer)
 {
@@ -13,26 +14,23 @@ int min_nbr(int *str, char *buffer)
     int i = 0;
     int stock = 0;
 
-
-    i = intlen(str);
     if (str[i] == 1) {
         if (str[i - 1] > 0 && str[i - intlen(str)] > 0
         && str[i - intlen(str) - 1] > 0)
         stock = str[i] + 1;
-        calc_sup(stock, str, buffer);
     }
     return (stock);
 }
 
-int calc_sup(int stock, int *str, char *buffer)
+int calc_sup(int *str, char *buffer)
 {
     int i = 0;
+    int stock = min_nbr(str, buffer);
     int j = calc_square(buffer, str, stock);
 
     if (stock < str[i])
         stock = str[i];
-    while (buffer[j] < stock) {
-        buffer[j] = 'x';
+    while (buffer[j] != str[stock]) {
         j = j + 1;
         }
 }

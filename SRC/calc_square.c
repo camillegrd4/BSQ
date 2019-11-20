@@ -6,6 +6,7 @@
 */
 
 #include "my.h"
+#include <stdio.h>
 
 int calc_square(char *buffer, int *str, int stock)
 {
@@ -16,10 +17,5 @@ int calc_square(char *buffer, int *str, int stock)
     while (str[i] != str[stock]) {
         i = i + 1;
     }
-    while (str[j] < str[i]) {
-        buffer[j] = buffer[j + 1];
-        j = j + 1;
-        i = i + 1;
-    }
-    return (j);
+    return (i);
 }
