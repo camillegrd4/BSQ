@@ -31,12 +31,9 @@ int bsq(int argc, char **argv)
     buffer[buf.st_size] = '\0';
     fd = open(argv[1], O_RDONLY);
     nb = read(fd, buffer, buf.st_size);
-    if (fd == -1)
-    return (84);
-    if (nb == -1)
+    if (fd == -1 || nb == -1)
     return (84);
     calc_sup(str, buffer);
     my_putstr(buffer);
     free(buffer);
-    return (0);
-}
+    return (0);}
