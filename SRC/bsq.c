@@ -18,6 +18,7 @@ int bsq(int argc, char **argv)
 {
     int fd;
     int size;
+    int nb;
     int i = 0;
     struct stat buf;
     char *buffer = NULL;
@@ -29,7 +30,11 @@ int bsq(int argc, char **argv)
     str = malloc(sizeof(char) * (buf.st_size + 1));
     buffer[buf.st_size] = '\0';
     fd = open(argv[1], O_RDONLY);
-    read(fd, buffer, buf.st_size);
+    nb = read(fd, buffer, buf.st_size);
+    if (fd == -1)
+    return (84);
+    if (nb == -1)
+    return (84);
     calc_sup(str, buffer);
     my_putstr(buffer);
     free(buffer);
