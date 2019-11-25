@@ -13,24 +13,38 @@ int min_nbr(int *str, char *buffer)
     int nbr = 0;
     int i = 0;
     int stock = 0;
+    int gretter = 0;
 
-    if (str[i] == 1) {
-        if (str[i - 1] > 0 && str[i - intlen(str)] > 0
-        && str[i - intlen(str) - 1] > 0)
-        stock = str[i] + 1;
-    }
+    while (str[i] != -1)
+        i += 1;
+    i += 1;
+    while (str[i] != -2) {
+        if (str[i] > 0) {
+            gretter = comparison_function(str);
+            if (stock <= gretter)
+                stock = gretter + 1;
+                } else if (stock >= gretter)
+                    stock = stock + 1;
+            i = i + 1;
+            }
+    printf("gretter:%i\n", gretter);
+    printf("stock:%i\n", stock);
     return (stock);
 }
 
-int calc_sup(int *str, char *buffer)
+char *calc_sup(int *str, char *buffer)
 {
     int i = 0;
     int stock = min_nbr(str, buffer);
-    int j = calc_square(buffer, str, stock);
+    int j;
+    int square = 0;
 
-    if (stock < str[i])
-        stock = str[i];
     while (buffer[j] != str[stock]) {
-        j = j + 1;
+        if (str[j] == -1) {
+            j = 0;
         }
+        my_putchar('x');
+        j = j + 1;
+    }
+    return (buffer);
 }

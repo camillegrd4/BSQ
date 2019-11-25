@@ -36,15 +36,21 @@ int my_algo(char *buffer, int *str)
 void square(char *buffer, int *str)
 {
     int i = 0;
+    int j = 0;
 
+    while (buffer[i] != '\n')
+        i += 1;
+    i += 1;
     while (buffer[i] != '\0') {
         if (buffer[i] == '.')
-            str[i] = 1;
+            str[j] = 1;
         if (buffer[i] == 'o')
-            str[i] = 0;
+            str[j] = 0;
         if (buffer[i] == '\n')
-            str[i] = -1;
+            str[j] = -1;
         i = i + 1;
+        j = j + 1;
     }
-    str[i] = -2;
+    str[j] = -2;
+    my_putint(str);
 }

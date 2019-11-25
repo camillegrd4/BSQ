@@ -27,12 +27,13 @@ int bsq(int argc, char **argv)
 
     stat(path, &buf);
     buffer = malloc(sizeof(char) * (buf.st_size + 1));
-    str = malloc(sizeof(char) * (buf.st_size + 1));
+    str = malloc(sizeof(int) * (buf.st_size + 1));
     buffer[buf.st_size] = '\0';
     fd = open(argv[1], O_RDONLY);
     nb = read(fd, buffer, buf.st_size);
     if (fd == -1 || nb == -1)
-    return (84);
+        return (84);
+    square(buffer, str);
     calc_sup(str, buffer);
     my_putstr(buffer);
     free(buffer);
