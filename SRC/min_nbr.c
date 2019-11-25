@@ -27,8 +27,6 @@ int min_nbr(int *str, char *buffer)
                     stock = stock + 1;
             i = i + 1;
             }
-    printf("gretter:%i\n", gretter);
-    printf("stock:%i\n", stock);
     return (stock);
 }
 
