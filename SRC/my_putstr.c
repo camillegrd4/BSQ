@@ -15,10 +15,10 @@ int my_putint(int *str)
     int i = 0;
 
     while (str[i] != -2) {
-        if (str[i - 1] == -1) {
+        if (str[i] == -1) {
             my_putchar('\n');
-        }
-        my_put_nbr(str[i]);
+        } else
+            my_put_nbr(str[i]);
         i = i + 1;
     }
     my_put_nbr(-2);

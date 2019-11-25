@@ -18,39 +18,36 @@ void my_putchar(char c);
 
 int my_putstr(char const *str);
 
-int my_algo(char *buffer, int *str)
+int first_co_li(char *buffer, int *str, int i, int j)
 {
-    int i = 0;
-    char nb;
-
-    while (str[i] != -2) {
-        str[i] = str[i] + intlen(str);
-        if (str[i] > 0 && str[i - 1] > 0 && str[i - intlen(str)] > 0
-                                        && str[i - intlen(str) - 1] > 0) {
-        nb = min_nbr(str, buffer);
-        }
-        i = i + 1;
-    }
-}
-
-void square(char *buffer, int *str)
-{
-    int i = 0;
-    int j = 0;
-
-    while (buffer[i] != '\n')
-        i += 1;
-    i += 1;
-    while (buffer[i] != '\0') {
         if (buffer[i] == '.')
             str[j] = 1;
         if (buffer[i] == 'o')
             str[j] = 0;
         if (buffer[i] == '\n')
             str[j] = -1;
-        i = i + 1;
-        j = j + 1;
-    }
-    str[j] = -2;
-    my_putint(str);
 }
+
+void square(char *buffer, int *str)
+{
+    int i = 0;
+    int j = 0;
+    int line = 0;
+    int len_line;
+
+    while (buffer[i] != '\n')
+        i += 1;
+    i += 1;
+    len_line = intlen(buffer, i);
+    while (buffer[i] != '\0') {
+        if (buffer[i] == '\n')
+            line += 1;
+        if (line > 0 && buffer[i - 1] != '\n' && buffer[i] == '.')
+            str[j] = min_number_tr(str, j, len_line) + 1;
+        else {
+            first_co_li(buffer, str, i, j);
+        }
+        i = i + 1;
+        j = j + 1;}
+    str[j] = -2;
+    my_putint(str);}

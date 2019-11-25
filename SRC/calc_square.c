@@ -8,14 +8,15 @@
 #include "my.h"
 #include <stdio.h>
 
-int calc_square(char *buffer, int *str, int stock)
+int calc_square(char *buffer, int *str)
 {
     int i = 0;
     int j = 0;
-    stock = min_nbr(str, buffer);
+    int max = greatest_number(str, buffer, j);
 
-    while (str[i] != str[stock]) {
+    while (str[i] != max) {
         i = i + 1;
     }
+    i++;
     return (i);
 }

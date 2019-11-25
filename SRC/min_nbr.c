@@ -15,34 +15,44 @@ int min_nbr(int *str, char *buffer)
     int stock = 0;
     int gretter = 0;
 
-    while (str[i] != -1)
-        i += 1;
-    i += 1;
-    while (str[i] != -2) {
-        if (str[i] > 0) {
-            gretter = comparison_function(str);
-            if (stock <= gretter)
-                stock = gretter + 1;
-                } else if (stock >= gretter)
-                    stock = stock + 1;
-            i = i + 1;
-            }
+    calc_algo(str, i);
     return (stock);
 }
 
-char *calc_sup(int *str, char *buffer)
+int greatest_number(int *str, char *buffer, int j)
+{
+    int stock = 0;
+    int max = 0;
+    j = 0;
+
+    while (str[j] != -2) {
+        if (stock <= str[j])
+            stock = str[j];
+        if (max < stock) {
+            max = stock;
+            stock = 0;
+        }
+        j++;
+    }
+    return (max);
+}
+
+int find_lenght_square(int *str, char *buffer, int j)
+{
+    int nbr_max = greatest_number(str, buffer, j);
+    int lenght = j * nbr_max;
+}
+
+char *display_array(int *str, char *buffer)
 {
     int i = 0;
-    int stock = min_nbr(str, buffer);
-    int j;
-    int square = 0;
+    int j = calc_square(buffer, str);
+    int nbr_max = greatest_number(str, buffer, j);
+    int lenght = str[j] * nbr_max;
 
-    while (buffer[j] != str[stock]) {
-        if (str[j] == -1) {
-            j = 0;
-        }
-        my_putchar('x');
-        j = j + 1;
+    while (buffer[j] < buffer[nbr_max]) {
+        buffer[j] = 'x';
+        j--;
     }
     return (buffer);
 }

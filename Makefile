@@ -28,6 +28,10 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) $(CFLAGS)
+	@rm -rf $(OBJ)
+
+debug:	$(OBJ)
+	gcc -o debug $(OBJ) $(CFLAGS) -g
 
 re:	fclean all
 

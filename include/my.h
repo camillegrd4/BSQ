@@ -6,17 +6,19 @@
 */
 
 int min_nbr(int *str, char *buffer);
-int my_algo(char *buffer, int *str);
 void square(char *buffer, int *str);
-int my_algo(char *buffer, int *str);
-int intlen(int const *str);
+int intlen(char *str, int i);
 int my_getnbr(char const *str);
 int my_put_nbr(int nb);
 void my_putchar(char c);
 int my_putstr(char const *str);
 int my_strlen(char const *str);
-int calc_square(char *buffer, int *str, int stock);
-char *calc_sup(int *str, char *buffer);
+int calc_square(char *buffer, int *str);
+char *display_array(int *str, char *buffer);
 int bsq(int argc, char **argv);
 int my_putint(int *str);
-int comparison_function(int *str);
+int min_number(int a, int b);
+int min_number_tr(int *str, int i, int len_line);
+int calc_algo(int *str, int i);
+int greatest_number(int *str, char *buffer, int j);
+int find_lenght_square(int *str, char *buffer, int j);

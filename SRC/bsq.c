@@ -34,7 +34,7 @@ int bsq(int argc, char **argv)
     if (fd == -1 || nb == -1)
         return (84);
     square(buffer, str);
-    calc_sup(str, buffer);
+    display_array(str, buffer);
     my_putstr(buffer);
     free(buffer);
     return (0);}

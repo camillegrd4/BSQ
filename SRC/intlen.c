@@ -7,12 +7,14 @@
 
 #include "my.h"
 
-int intlen(int const *str)
+int intlen(char *str, int i)
 {
-    int i = 0;
+    int count;
 
-    while (str[i] != -1) {
-        i = i + 1;
+    while (str[i] != '\n') {
+        count++;
+        i++;
     }
-    return (i + 1);
+    count++;
+    return (count);
 }
