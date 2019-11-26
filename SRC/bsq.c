@@ -14,6 +14,21 @@
 #include <stdlib.h>
 #include "my.h"
 
+char display_all(int *str, char *buffer, struct stat buf)
+{
+    char *save;
+
+    square(buffer, str);
+    display_array(str, buffer);
+    save = buffer;
+    while (buffer[0] != '\n')
+        buffer += 1;
+    buffer += 1;
+    write(1, buffer, buf.st_size);
+    my_putchar('\n');
+    free(save);
+}
+
 int bsq(int argc, char **argv)
 {
     int fd;
@@ -24,7 +39,6 @@ int bsq(int argc, char **argv)
     char *buffer = NULL;
     int *str;
     const char *path = argv[1];
-    char *save;
 
     stat(path, &buf);
     buffer = malloc(sizeof(char) * (buf.st_size + 1));
@@ -34,13 +48,6 @@ int bsq(int argc, char **argv)
     nb = read(fd, buffer, buf.st_size);
     if (fd == -1 || nb == -1)
         return (84);
-    square(buffer, str);
-    display_array(str, buffer);
-    save = buffer;
-    while (buffer[0] != '\n')
-        buffer += 1;
-    buffer += 1;
-    write(1, buffer, buf.st_size);
-    my_putchar('\n');
-    free(save);
-    return (0);}
+    display_all(str, buffer, buf);
+    return (0);
+}

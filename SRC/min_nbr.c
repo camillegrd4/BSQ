@@ -39,29 +39,24 @@ int greatest_number(int *str, char *buffer, int j)
 
 char *display_array(int *str, char *buffer)
 {
-    int i = 0;
+    int i = -1;
     int j = calc_square(buffer, str);
     int stock = calc_square(buffer, str);
-    int lenght = greatest_number(str, buffer, j);
+    int lenght = greatest_number(str, buffer, j) + 1;
     int nbr_max = greatest_number(str, buffer, j);
     int len_line;
     int nb = 1;
 
-    while (buffer[i] != '\n')
-        i++;
+    while (buffer[++i] != '\n');
     j += i;
     stock += i;
     len_line = intlen(buffer, i + 1);
-    while (lenght > 0) {
+    while (--lenght > 0) {
         while (nbr_max > 0) {
-            buffer[j] = 'x';
-            nbr_max -= 1;
-            j -= 1;
-        }
-        lenght -= 1;
+            buffer[j--] = 'x';
+            nbr_max -= 1;}
         nbr_max = greatest_number(str, buffer, j);
         j = stock - (nb * len_line);
-        nb += 1;
-    }
+        nb += 1;}
     return (buffer);
 }
