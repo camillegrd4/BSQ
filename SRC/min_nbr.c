@@ -37,22 +37,26 @@ int greatest_number(int *str, char *buffer, int j)
     return (max);
 }
 
-int find_lenght_square(int *str, char *buffer, int j)
-{
-    int nbr_max = greatest_number(str, buffer, j);
-    int lenght = j * nbr_max;
-}
-
 char *display_array(int *str, char *buffer)
 {
     int i = 0;
     int j = calc_square(buffer, str);
+    int stock = calc_square(buffer, str);
+    int lenght = greatest_number(str, buffer, j);
     int nbr_max = greatest_number(str, buffer, j);
-    int lenght = str[j] * nbr_max;
 
-    while (buffer[j] < buffer[nbr_max]) {
-        buffer[j] = 'x';
-        j--;
+    while (buffer[i] != '\n') {
+        i = i + 1;
     }
-    return (buffer);
-}
+    j += i;
+    stock += i;
+    while (lenght > 0) {
+        while (nbr_max > 0) {
+            buffer[j] = 'x';
+            nbr_max = nbr_max - 1;
+            j = j - 1;}
+        lenght = lenght - 1;
+        nbr_max = greatest_number(str, buffer, j);
+        j = stock - intlen(buffer, j);
+        }
+    return (buffer);}

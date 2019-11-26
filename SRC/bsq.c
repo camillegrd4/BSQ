@@ -35,6 +35,6 @@ int bsq(int argc, char **argv)
         return (84);
     square(buffer, str);
     display_array(str, buffer);
-    my_putstr(buffer);
+    write(1, buffer, buf.st_size);
     free(buffer);
     return (0);}

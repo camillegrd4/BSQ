@@ -20,5 +20,6 @@ int my_putint(int *str);
 int min_number(int a, int b);
 int min_number_tr(int *str, int i, int len_line);
 int calc_algo(int *str, int i);
-int greatest_number(int *str, char *buffer, int j);
 int find_lenght_square(int *str, char *buffer, int j);
+int display_co(int *str, char *buffer, int j);
+int greatest_number(int *str, char *buffer, int j);
