@@ -50,4 +50,4 @@ void square(char *buffer, int *str)
         i = i + 1;
         j = j + 1;}
     str[j] = -2;
-    my_putint(str);}
+}

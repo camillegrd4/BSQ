@@ -9,7 +9,7 @@
 
 int intlen(char *str, int i)
 {
-    int count;
+    int count = 0;
 
     while (str[i] != '\n') {
         count++;

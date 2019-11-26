@@ -44,19 +44,24 @@ char *display_array(int *str, char *buffer)
     int stock = calc_square(buffer, str);
     int lenght = greatest_number(str, buffer, j);
     int nbr_max = greatest_number(str, buffer, j);
+    int len_line;
+    int nb = 1;
 
-    while (buffer[i] != '\n') {
-        i = i + 1;
-    }
+    while (buffer[i] != '\n')
+        i++;
     j += i;
     stock += i;
+    len_line = intlen(buffer, i + 1);
     while (lenght > 0) {
         while (nbr_max > 0) {
             buffer[j] = 'x';
-            nbr_max = nbr_max - 1;
-            j = j - 1;}
-        lenght = lenght - 1;
-        nbr_max = greatest_number(str, buffer, j);
-        j = stock - intlen(buffer, j);
+            nbr_max -= 1;
+            j -= 1;
         }
-    return (buffer);}
+        lenght -= 1;
+        nbr_max = greatest_number(str, buffer, j);
+        j = stock - (nb * len_line);
+        nb += 1;
+    }
+    return (buffer);
+}
