@@ -30,7 +30,6 @@ char display_all(int *str, char *buffer, struct stat buf)
         buffer += 1;
     buffer += 1;
     write(1, buffer, buf.st_size);
-    my_putchar('\n');
     free(save);
 }
 
