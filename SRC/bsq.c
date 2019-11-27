@@ -14,6 +14,11 @@
 #include <stdlib.h>
 #include "my.h"
 
+void test_prog(int argc)
+{
+    write(2, "./bsq [map]\n", 13);
+}
+
 char display_all(int *str, char *buffer, struct stat buf)
 {
     char *save;
@@ -39,14 +44,15 @@ int bsq(int argc, char **argv)
     char *buffer = NULL;
     int *str;
     const char *path = argv[1];
-
     stat(path, &buf);
     buffer = malloc(sizeof(char) * (buf.st_size + 1));
+    if (argv[1] == NULL)
+        return (84);
     str = malloc(sizeof(int) * (buf.st_size + 1));
     buffer[buf.st_size] = '\0';
     fd = open(argv[1], O_RDONLY);
     nb = read(fd, buffer, buf.st_size);
-    if (fd == -1 || nb == -1)
+    if (fd == O_RDONLY == -1 || nb == -1 || nb == 0)
         return (84);
     display_all(str, buffer, buf);
     return (0);
