@@ -29,8 +29,9 @@ char display_all(int *str, char *buffer, struct stat buf)
     while (buffer[0] != '\n')
         buffer += 1;
     buffer += 1;
-    write(1, buffer, buf.st_size);
+    write(1, buffer, my_strlen(buffer));
     free(save);
+    free(str);
 }
 
 int bsq(int argc, char **argv)
