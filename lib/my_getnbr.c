@@ -5,17 +5,15 @@
 ** my_getnbr.c
 */
 
-#include <stdio.h>
-#include <limits.h>
 #include "my.h"
 
 int overflow(int result, int sign)
 {
     if (result < 0 && sign == -1)
-        return (result);
+        return result;
     if (result > 0 && sign == 1)
-        return (result);
-    return (0);
+        return result;
+    return 0;
 }
 
 int get_value(char const *str, int i, int sign)
@@ -24,9 +22,9 @@ int get_value(char const *str, int i, int sign)
 
     while (str[i] != '\0' && ('0' <= str[i] && str[i] <= '9')) {
         result =  result * 10 + ((str[i] - 48) * sign);
-        i = i + 1;
+        i++;
     }
-    return (result);
+    return result;
 }
 
 int my_getnbr(char const *str)
@@ -40,7 +38,7 @@ int my_getnbr(char const *str)
         }
         else if ('0' <= str[i] && str[i] <= '9')
             break;
-        i = i + 1;
+        i++;
     }
-    return (overflow(get_value(str, i, sign), sign));
+    return overflow(get_value(str, i, sign), sign);
 }

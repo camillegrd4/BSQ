@@ -36,7 +36,7 @@ void square(char *buffer, int *str)
         else {
             first_co_li(buffer, str, i, j);
         }
-        i = i + 1;
-        j = j + 1;
+        i++;
+        j++;
         } str[j] = -2;
 }

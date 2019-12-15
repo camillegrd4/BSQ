@@ -57,6 +57,7 @@ char *display_array(int *str, char *buffer)
             nbr_max -= 1;}
         nbr_max = greatest_number(str, buffer, j);
         j = stock - (nb * len_line);
-        nb += 1;}
+        nb += 1;
+        }
     return buffer;
 }

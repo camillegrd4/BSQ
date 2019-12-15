@@ -5,10 +5,7 @@
 ** my_put_nbr.c
 */
 
-#include <stdio.h>
-#include <unistd.h>
-
-void my_putchar(char c);
+#include "my.h"
 
 int my_put_nbr(int nb)
 {
@@ -21,7 +18,7 @@ int my_put_nbr(int nb)
         stock = stock * (-1);
     } if (nb == -2147483648) {
         write(1, "-2147483648", 11);
-        return (0);
+        return 0;
     } while (stock >= 10) {
         stock = stock / 10;
         i = i * 10;
@@ -31,5 +28,5 @@ int my_put_nbr(int nb)
         nb = nb % i;
         i = i / 10;
     }
-    return (0);
+    return 0;
 }

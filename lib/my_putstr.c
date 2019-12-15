@@ -5,7 +5,6 @@
 ** my_putstr.c
 */
 
-#include <unistd.h>
 #include "my.h"
 
 void my_putchar(char c);
@@ -19,11 +18,11 @@ int my_putint(int *str)
             my_putchar('\n');
         } else
             my_put_nbr(str[i]);
-        i = i + 1;
+        i++;
     }
     my_put_nbr(-2);
     my_putchar('\n');
-    return (0);
+    return 0;
 }
 
 int my_putstr(char const *str)
@@ -32,7 +31,7 @@ int my_putstr(char const *str)
 
     while (str[i] != '\0') {
         my_putchar(str[i]);
-        i = i + 1;
+        i++;
     }
-    return (0);
+    return 0;
 }
