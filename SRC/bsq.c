@@ -24,12 +24,12 @@ char display_all(int *str, char *buffer, struct stat buf)
 
 int bsq(int argc, char **argv)
 {
-    int op;
-    int size;
-    int rd;
+    int op = 0;
+    int size = 0;
+    int rd = 0;
     struct stat buf;
     char *buffer = NULL;
-    int *str;
+    int *str = NULL;
     const char *path = argv[1];
     stat(path, &buf);
     buffer = malloc(sizeof(char) * (buf.st_size + 1));
@@ -37,7 +37,7 @@ int bsq(int argc, char **argv)
     buffer[buf.st_size] = '\0';
     op = open(argv[1], O_RDONLY);
     rd = read(op, buffer, buf.st_size);
-    if (op <= -1 || rd <= -1)
+    if (op <= -1 || rd == 0)
         return (84);
     display_all(str, buffer, buf);
     return 0;
