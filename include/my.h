@@ -5,6 +5,14 @@
 ** my
 */
 
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 int min_nbr(int *str, char *buffer);
 void square(char *buffer, int *str);
 int intlen(char *str, int i);

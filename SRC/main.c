@@ -7,7 +7,8 @@
 
 #include "my.h"
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-    bsq(argc, argv);
+    if (bsq(argc, argv) == 84)
+        return 84;
 }

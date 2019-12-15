@@ -5,13 +5,6 @@
 ** main.c
 */
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "my.h"
 
 void test_prog(int argc)
@@ -39,7 +32,6 @@ int bsq(int argc, char **argv)
     int fd;
     int size;
     int nb;
-    int i = 0;
     struct stat buf;
     char *buffer = NULL;
     int *str;
@@ -55,5 +47,5 @@ int bsq(int argc, char **argv)
     if (fd == O_RDONLY == -1 || nb == -1 || nb == 0)
         return (84);
     display_all(str, buffer, buf);
-    return (0);
+    return 0;
 }

@@ -16,5 +16,5 @@ int intlen(char *str, int i)
         i++;
     }
     count++;
-    return (count);
+    return count;
 }

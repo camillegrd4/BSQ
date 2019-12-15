@@ -5,18 +5,7 @@
 ** bsq.c
 */
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "my.h"
-
-void my_putchar(char c);
-
-int my_putstr(char const *str);
 
 int first_co_li(char *buffer, int *str, int i, int j)
 {
@@ -48,6 +37,6 @@ void square(char *buffer, int *str)
             first_co_li(buffer, str, i, j);
         }
         i = i + 1;
-        j = j + 1;}
-    str[j] = -2;
+        j = j + 1;
+        } str[j] = -2;
 }

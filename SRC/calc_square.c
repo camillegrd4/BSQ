@@ -6,7 +6,6 @@
 */
 
 #include "my.h"
-#include <stdio.h>
 
 int calc_square(char *buffer, int *str)
 {
@@ -15,8 +14,8 @@ int calc_square(char *buffer, int *str)
     int max = greatest_number(str, buffer, j);
 
     while (str[i] != max) {
-        i = i + 1;
+        i++;
     }
     i++;
-    return (i);
+    return i;
 }

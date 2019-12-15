@@ -10,9 +10,9 @@
 int min_number(int a, int b)
 {
     if (a < b)
-        return (a);
+        return a;
     else
-        return (b);
+        return b;
 }
 
 int min_number_tr(int *str, int i, int len_line)
@@ -23,9 +23,9 @@ int min_number_tr(int *str, int i, int len_line)
     int min = min_number(a, b);
 
     if (min < c)
-        return (min);
+        return min;
     else
-        return (c);
+        return c;
 }
 
 int calc_algo(int *str, int i)
@@ -38,5 +38,5 @@ int calc_algo(int *str, int i)
             max = str[i];
         i++;
     }
-    return (max);
+    return max;
 }
