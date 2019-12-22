@@ -86,6 +86,5 @@ int bsq(int argc, char **argv)
         return (84);
     if (display_all(str, buffer, buf) == 84)
         return 84;
-    my_putchar('\n');
     return 0;
 }
