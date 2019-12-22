@@ -31,3 +31,4 @@ int calc_algo(int *str, int i);
 int find_lenght_square(int *str, char *buffer, int j);
 int display_co(int *str, char *buffer, int j);
 int greatest_number(int *str, char *buffer, int j);
+int error(char *buffer);

@@ -7,13 +7,30 @@
 
 #include "my.h"
 
+int error(char *buffer)
+{
+    int number = my_getnbr(buffer);
+    int i = 0;
+
+    while (buffer[i] != '\0') {
+        if (buffer[i] == '\n')
+            number--;
+        i++;
+    }
+    if (number != 0)
+        return 1;
+    return 0;
+}
+
 char display_all(int *str, char *buffer, struct stat buf)
 {
     char *save;
-
+    int i = 0;
     square(buffer, str);
     display_array(str, buffer);
     save = buffer;
+    if (error(buffer) == 1)
+        return 84;
     while (buffer[0] != '\n')
         buffer += 1;
     buffer += 1;
@@ -39,6 +56,7 @@ int bsq(int argc, char **argv)
     rd = read(op, buffer, buf.st_size);
     if (op <= -1 || rd == 0)
         return (84);
-    display_all(str, buffer, buf);
+    if (display_all(str, buffer, buf) == 84)
+        return 84;
     return 0;
 }
