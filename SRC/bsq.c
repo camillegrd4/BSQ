@@ -31,8 +31,9 @@ char display_all(int *str, char *buffer, struct stat buf)
     save = buffer;
     if (error(buffer) == 1)
         return 84;
-    while (buffer[0] != '\n')
+    while (buffer[0] != '\n') {
         buffer += 1;
+    }
     buffer += 1;
     write(1, buffer, my_strlen(buffer));
     free(save);
