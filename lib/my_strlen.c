@@ -16,3 +16,17 @@ int my_strlen(char const *str)
     }
     return i;
 }
+
+int my_strlen_n(char *str)
+{
+    int i = 0;
+    int value = 0;
+    while (str[i] != '\n')
+        i++;
+    i++;
+    while (str[i] != '\n') {
+        value += 1;
+        i++;
+    }
+    return value;
+}

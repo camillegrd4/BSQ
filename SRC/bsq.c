@@ -7,7 +7,31 @@
 
 #include "my.h"
 
-int error(char *buffer)
+int error_lines(char *buffer)
+{
+    int i = 0;
+    int n = 0;
+    int save = 0;
+
+    while (buffer[i] != '\n')
+        i++;
+    buffer+=1;
+    n = my_strlen_n(buffer) + 1;
+    while (buffer[i] != '\0') {
+        while (buffer[i] != '\n' && buffer[i] != '\0') {
+            save++;
+            i++;
+        }
+        save++;
+        if (save != n)
+            return 84;
+        save = 0;
+        i++;
+    }
+    return 0;
+}
+
+int error_number_lines(char *buffer)
 {
     int number = my_getnbr(buffer);
     int i = 0;
@@ -17,6 +41,7 @@ int error(char *buffer)
             number--;
         i++;
     }
+    number++;
     if (number != 0)
         return 1;
     return 0;
@@ -29,7 +54,9 @@ char display_all(int *str, char *buffer, struct stat buf)
     square(buffer, str);
     display_array(str, buffer);
     save = buffer;
-    if (error(buffer) == 1)
+    if (error_number_lines(buffer) == 1)
+        return 84;
+    if (error_lines(buffer) == 84)
         return 84;
     while (buffer[0] != '\n') {
         buffer += 1;
@@ -59,5 +86,6 @@ int bsq(int argc, char **argv)
         return (84);
     if (display_all(str, buffer, buf) == 84)
         return 84;
+    my_putchar('\n');
     return 0;
 }
